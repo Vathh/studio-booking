@@ -1,0 +1,43 @@
+@import './colors';
+
+.nav__large{
+  display: none;
+  justify-content: center;
+
+  
+  .nav__box1{
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 2%;
+      height: 91px;
+      z-index: 10001;
+      width: 100%;
+      max-width: 1200px;
+      background-color: #020202;
+  
+      a{
+          cursor: pointer;
+      }
+  
+      &-navitem{
+          position: relative;
+          padding: 0 10px;
+          text-decoration: none;
+          color: $white;
+          transition: color .3s, transform .3s;
+  
+          &:hover{
+              color: $gold;
+              transform: scale(1.1);
+          }
+      }
+  }
+}
+
+@media only screen and (min-width: 768px){
+    .nav__large{
+        display: flex;
+    }
+}

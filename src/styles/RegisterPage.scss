@@ -1,0 +1,157 @@
+@import './colors';
+
+.registerPanel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 70vh;
+
+  &-header{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    font-size: 2.3rem;
+  }
+
+  &-input{
+    margin: 10px 0;
+    padding: 5px 10px;
+    font-size: 1.7rem;
+  }
+
+  &-sexSelect{
+    padding: 7px 30px; 
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+
+  &-btn{
+    margin: 30px 0 40px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    border: 1px solid $gold;
+    background-color: $black;
+    color: $gold;
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: color .3s;
+
+    &:hover{
+      color: $black;
+      background-color: $gold;
+    }
+  }
+
+  &__password{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      border: 1px solid transparent;
+      background-color: transparent;
+      cursor: pointer;    
+    }
+
+    &-requirements{
+      display: flex;
+      flex-direction: column;
+      &-item{
+        padding: 5px 0;
+        font-size: 1.4rem;
+        text-align: center;
+
+        i{
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+
+  &-approval{
+    font-size: 1.8rem;
+    text-align: center;
+
+    a{
+      color: $white;
+    }
+  }
+}
+
+@media only screen and (min-width: 450px){
+  .registerPanel{  
+    &-header{
+      font-size: 2.3rem;
+    }
+  
+    &-input{
+      margin: 12px 0;
+      font-size: 1.8rem;
+    }
+  
+    &-btn{
+      margin: 30px 0 40px;
+      font-size: 1.9rem;
+    }
+  
+    &__password{  
+      &-btn{
+        right: 10px;  
+      }
+  
+      &-requirements{
+        &-item{
+          padding: 5px 0;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  
+    &-approval{
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .registerPanel{  
+    &-header{
+      font-size: 2.4rem;
+    }
+  
+    &-input{
+      margin: 15px 0;
+      padding: 7px 14px;
+      font-size: 1.8rem;
+    }
+  
+    &-btn{
+      font-size: 2rem;
+    }
+  
+    &__password{    
+      &-requirements{
+        &-item{
+          padding: 6px 0;
+          font-size: 1.5rem;
+  
+          i{
+            padding: 0 12px;
+          }
+        }
+      }
+    }
+  
+    &-approval{
+      font-size: 1.8rem;
+    }
+  }
+}
