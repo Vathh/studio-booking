@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom'; 
 
 import '../styles/RegisterPage.scss'
 
-const passRegex = new RegExp("^(?=.*?[0-9])(?=.*?[#?!@$%^&*-])")
-const checkIcon = <i className="fas fa-check"></i>;
-const timesIcon = <i className="fas fa-times"></i>;
+const passRegex = new RegExp("^(?=.*?[0-9])(?=.*?[#?!,.@$%^&*-])")
 
 const RegisterPage = () => {
+  const checkIcon = <i className="fas fa-check"></i>;
+  const timesIcon = <i className="fas fa-times"></i>;
 
   const [login, setLogin] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   // const [sex, setSex] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +21,14 @@ const RegisterPage = () => {
   const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState(false);
   const [isPasswordLongEnough, setIsPasswordLongEnough] = useState(false);
   const [isMarkPassword, setIsMarkPassword] = useState(false);
+
+  const handleNameInput = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleSurnameInput = (e) => {
+    setSurname(e.target.value);
+  }
 
   const handleLoginInput = (e) => {
     setLogin(e.target.value);
@@ -60,21 +70,48 @@ const RegisterPage = () => {
     setIsRepeatPasswordVisible(!isRepeatPasswordVisible);
   }
 
+  const handleRegisterBtn = () => {
+
+    const newUserData = {
+      "Login": login,
+      'Password': password,
+      'Name': name,
+      'Surname': surname,
+      'PhoneNumber': phoneNumber
+    }
+
+    fetch('https://localhost:44357/api/Users', {
+      method: 'POST',
+      mode: 'cors', 
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUserData) 
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
+  }
+
   return ( 
     <div className='wrapper'>
       <div className="registerPanel">
         <h3 className="registerPanel-header">Rejestracja użytkownika</h3>
+        
+        <div className="registerPanel__inputContainer">
+          <input type="text" placeholder='Imię' value={name} onChange={handleNameInput} className='registerPanel-input'/>
+        </div>
+
+        <div className="registerPanel__inputContainer">
+          <input type="text" placeholder='Nazwisko' value={surname} onChange={handleSurnameInput} className='registerPanel-input'/>
+        </div>
+
         <div className="registerPanel__inputContainer">
           <input type="text" placeholder='Login' className='registerPanel-input' value={login} onChange={handleLoginInput}/>
         </div>
         <div className="registerPanel__inputContainer">
           <input type="tel" placeholder='Numer telefonu' value={phoneNumber} onChange={handlePhoneNumberInput} className='registerPanel-input'/>
         </div>
-        {/* <select name="sex" defaultValue={0} onChange={handleSexSelect} className='registerPanel-sexSelect'>
-            <option value="0" disabled hidden>Płeć</option>
-            <option value="1">Mężczyzna</option>
-            <option value="2">Kobieta</option>
-        </select> */}
 
         <div className="registerPanel__inputContainer">
           <div className="registerPanel__password">
@@ -95,7 +132,7 @@ const RegisterPage = () => {
           </div>
         </div>
 
-        <button className="registerPanel-btn">Rejestracja</button>
+        <button className="registerPanel-btn" onClick={handleRegisterBtn}>Rejestracja</button>
 
         <p className="registerPanel-approval">Rejestrując się jednocześnie akceptujesz <Link to="/rules">Regulamin</Link></p>
       </div>
