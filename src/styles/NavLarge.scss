@@ -1,16 +1,15 @@
 @import './colors';
 
 .nav__large{
-  display: none;
-  justify-content: center;
-
+    position: relative;
+    // display: none;
+    justify-content: center;
   
   .nav__box1{
       position: fixed;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 2%;
       height: 91px;
       z-index: 10001;
       width: 100%;
@@ -32,6 +31,15 @@
               color: $gold;
               transform: scale(1.1);
           }
+      }
+
+      &-loginBtn{
+          position: absolute;
+          right: 5%;
+          color: $gold;
+          padding: 10px 15px;
+          cursor: pointer;
+          text-decoration: none;
       }
   }
 }

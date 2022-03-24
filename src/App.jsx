@@ -5,13 +5,15 @@ import NavLarge from './layouts/NavLarge';
 import HomeHeader from './bigComponents/HomeHeader';
 import Footer from './layouts/Footer';
 import Page from './layouts/Page';
+import StoreProvider from './store/StoreProvider';
 
 import './App.scss';
 
 const App = () => {
   return ( 
     
-    <Router>
+    <StoreProvider>
+      <Router>
       {<NavLarge />}
       {<HomeHeader />}
       <main>
@@ -19,6 +21,7 @@ const App = () => {
       </main>
       {<Footer />}
     </Router>
+    </StoreProvider>
     
    );
 }
