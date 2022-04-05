@@ -136,7 +136,7 @@ const RegisterPage = () => {
 
         <button className="registerPanel-btn" onClick={handleRegisterBtn}>Rejestracja</button>
         
-        <Link to="/" className='registerPanel-backToLoginBtn'>Powrót do ekranu logowania</Link>
+        <Link to="/login" className='registerPanel-backToLoginBtn'>Powrót do ekranu logowania</Link>
       </div>
     </div>
    );

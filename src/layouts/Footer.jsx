@@ -31,7 +31,7 @@ const Footer = () => {
   })
 
   return ( 
-    <footer className="footer section">
+    <footer className="footer">
     <div className="wrapper">
         <div className="footer__box">
           <p className="footer__box-item">&copy; {currentYear} SunnyVale</p>

@@ -2,8 +2,7 @@
 
 .nav__large{
     position: relative;
-    // display: none;
-    justify-content: center;
+    display: none;
   
   .nav__box1{
       position: fixed;
@@ -35,11 +34,47 @@
 
       &-loginBtn{
           position: absolute;
-          right: 5%;
+          right: 0;
           color: $gold;
           padding: 10px 15px;
           cursor: pointer;
           text-decoration: none;
+
+          
+      }
+
+      &-userMenuBtn{
+          width: 150px;
+          text-align: right;
+          border: 1px solid transparent;
+          &:hover{
+              border: 1px solid $white;
+          }
+
+          &:hover .nav__box1-userMenu{
+            display: block;
+          }
+      }
+
+      &-userMenu{
+          position: absolute;
+          display: none;
+          right: -1px;
+          top: 38px;
+          width: 150px;
+          background-color: $black;
+          border: 1px solid $white;
+          padding: 10px 20px;
+          
+          li{
+              list-style: none;
+              padding: 8px 0;
+              text-align: start;
+              a{
+                text-decoration: none;
+                color: $white;
+              }
+          }
       }
   }
 }

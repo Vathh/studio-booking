@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
 
-import NavLarge from './layouts/NavLarge';
 import HomeHeader from './bigComponents/HomeHeader';
 import Footer from './layouts/Footer';
 import Page from './layouts/Page';
 import StoreProvider from './store/StoreProvider';
+import Nav from './layouts/Nav';
 
 import './App.scss';
 
@@ -14,7 +14,7 @@ const App = () => {
     
     <StoreProvider>
       <Router>
-      {<NavLarge />}
+      {<Nav />}
       {<HomeHeader />}
       <main>
         {<Page />}

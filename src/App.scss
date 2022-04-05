@@ -27,35 +27,3 @@ body{
     width: 100%;
 }
 
-.section__header{
-    position: relative;
-    text-align: center;
-    font-size: 2.3rem;
-    margin: 10px 0 20px;
-    color: $gold;
-
-    &::after{
-        content: '';
-        position: absolute;
-        width: 40%;
-        height: 2px;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: $gold;
-    }
-}
-
-@media only screen and (min-width: 400px){
-    .section__header{
-        font-size: 2.5rem;
-        margin: 10px 0 25px;
-    }
-}
-
-@media only screen and (min-width: 1200px){
-    .section__header{
-        font-size: 3.1rem;
-        margin: 20px 0 40px;
-    }
-}

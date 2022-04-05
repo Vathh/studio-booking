@@ -1,0 +1,62 @@
+@import './colors';
+
+.burger-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1em;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  z-index: 1000;
+
+  &:focus{
+      outline: none;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 8px;
+  }
+
+  &:hover{
+      .burger-btn__bars::after, .burger-btn__bars::before{
+          width: 100%;
+      }
+  }
+
+  &__box{
+      position: relative;
+      width: 30px;
+      height: 20px;
+  }
+
+  &__bars,
+  &__bars::after,
+  &__bars::before{
+       position: absolute;
+       right: 0;
+       height: 3px;
+       content: '';
+       background-color: #fff;
+       transition: width .3s;
+  }
+
+  &__bars{
+      width: 100%;
+
+      &::after{
+          top: 10px;
+          width: 60%;
+      }
+
+      &::before{
+          top: 20px;
+          width: 30%;
+          transition-delay: .1s;
+      }
+  }
+}
+
+@media only screen and (min-width: 768px)  {
+    .burger-btn{
+        display: none;
+    }
+}
