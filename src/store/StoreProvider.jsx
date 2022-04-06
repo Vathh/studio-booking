@@ -15,9 +15,12 @@ const StoreProvider = ({ children }) => {
 
   const [user, setUser] = useState(andrzejek);  
 
+  const [chosenServices, setChosenServices] = useState([]);  
+
   return ( 
     <StoreContext.Provider value={{
       user, setUser,
+      chosenServices, setChosenServices
     }}>
       {children}
     </StoreContext.Provider>
@@ -25,21 +28,3 @@ const StoreProvider = ({ children }) => {
   }
   
   export default StoreProvider;
-  
-  // categories, setCategories, 
-  // care, other, stylization, shearing, colouring
-
-
-// const servicesCare = ['Nawilżanie arganowe', 'Nawilżanie keratynowe','Nawilżanie z kwasem hialuronowym','Regeneracja olaplex','Botoks'];
-// const servicesColouring = ['Refleksy','Pasemka','Sombre','Dekoloryzacja'];
-// const servicesShearing = ['Strzyżenie damskie', 'Strzyżenie męskie'];
-// const servicesStylization = ['Modelowanie', 'Fale', 'Upięcia'];
-// const servicesOther = ['Styling','Mezoterapia skóry głowy']
-
-
-// const [categories, setCategories] = useState(null);
-  // const [care, setCare] = useState(servicesCare);
-  // const [colouring, setColouring] = useState(servicesColouring);
-  // const [shearing, setShearing] = useState(servicesShearing);
-  // const [stylization, setStylization] = useState(servicesStylization);
-  // const [other, setOther] = useState(servicesOther);
