@@ -17,10 +17,16 @@ const StoreProvider = ({ children }) => {
 
   const [chosenServices, setChosenServices] = useState([]);  
 
+  const [progressBarWidth, setProgressBarWidth] = useState(10);
+
+  const [city, setCity] = useState();
+
   return ( 
     <StoreContext.Provider value={{
       user, setUser,
-      chosenServices, setChosenServices
+      chosenServices, setChosenServices,
+      progressBarWidth, setProgressBarWidth,
+      city, setCity
     }}>
       {children}
     </StoreContext.Provider>

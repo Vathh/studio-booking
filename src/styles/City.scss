@@ -1,0 +1,24 @@
+@import './colors';
+
+.city{
+  &__header{
+    text-align: center;
+    padding: 40px 0;
+    color: $gold;
+  }
+
+  &__offer{
+    display: flex;
+    justify-content: space-around;
+
+    &-btn{
+      padding: 10px 20px;
+      font-size: 2rem;
+      border: 1px solid $gold;
+      background-color: $black;
+      color: $gold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}

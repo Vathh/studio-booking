@@ -2,10 +2,13 @@ import React, { useContext, useState } from 'react';
 
 import ProgressBarBall from '../components/ProgressBarBall';
 import ServiceCategory from '../components/ServiceCategory';
+import City from '../bigComponents/City'
+import ReservationServices from '../bigComponents/ReservationServices';
 
 import { StoreContext } from '../store/StoreProvider';
 
 import '../styles/ReservationPage.scss'
+import ReservationEmployees from '../bigComponents/ReservationEmployees';
 
 const servicesList = [
   {category: 'Strzyżenie',
@@ -66,55 +69,70 @@ const progressBallsData = [
 
 const ReservationPage = () => {
 
-  const {chosenServices, setChosenServices} = useContext(StoreContext);
+  const [isCityChosen, setIsCityChosen] = useState(false);
 
-  let temporaryChosenServices = [];
-  
-  const [progressBarWidth, setProgressBarWidth] = useState(10)  
+  const {progressBarWidth, setProgressBarWidth} = useContext(StoreContext);
 
-  const progressBarMove = (e) => {
-    if(e.target.textContent === 'LEWO'){
-      if(progressBarWidth > 10){
-        setProgressBarWidth(progressBarWidth - 20);
-      }
-    }else if(e.target.textContent === 'PRAWO'){
-      if(progressBarWidth < 90){
-        setProgressBarWidth(progressBarWidth + 20);
+  const {city, setCity} = useContext(StoreContext);
 
-        const selected = document.querySelectorAll('#service');
-        selected.forEach(service => {
-          if(service.checked === true){
-            console.log(service.getAttribute("serviceid"));
-            temporaryChosenServices.push(service.getAttribute("serviceid"))
-            console.log(temporaryChosenServices);
-          }
-        })
+  // const {chosenServices, setChosenServices} = useContext(StoreContext);
 
-        setChosenServices(temporaryChosenServices);
+  // let temporaryChosenServices = [];
 
-        return;
-      }
-    }
+  // const progressBarMove = (e) => {
+  //   if(e.target.textContent === 'LEWO'){
+  //     if(progressBarWidth > 10){
+  //       setProgressBarWidth(progressBarWidth - 20);
+  //     }
+  //   }else if(e.target.textContent === 'PRAWO'){
+  //     if(progressBarWidth < 90){
+  //       setProgressBarWidth(progressBarWidth + 20);
+
+  //       const selected = document.querySelectorAll('#service');
+  //       selected.forEach(service => {
+  //         if(service.checked === true){
+  //           console.log(service.getAttribute("serviceid"));
+  //           temporaryChosenServices.push(service.getAttribute("serviceid"))
+  //           console.log(temporaryChosenServices);
+  //         }
+  //       })
+
+  //       setChosenServices(temporaryChosenServices);
+
+  //       return;
+  //     }
+  //   }
+  // }
+
+  const handleCityChosen = () => {
+    setIsCityChosen(!isCityChosen);
   }
 
   const progressBallsToShow = progressBallsData.map(ball => {
     return <ProgressBarBall title={ball.title} key={ball.value} progressBarWidth={progressBarWidth} value={ball.value} />
   })
 
-  const servicesToShow = servicesList.map(category => {
-    return <ServiceCategory servicesList={category.services} category={category.category} key={category.category}></ServiceCategory>
-  })
+  // const servicesToShow = servicesList.map(category => {
+  //   return <ServiceCategory servicesList={category.services} category={category.category} key={category.category}></ServiceCategory>
+  // })
+
+  const progressBar = (<div className="progressBar">
+                        {progressBallsToShow}
+                        <div className="progressBar__bar" style={{width: `${progressBarWidth}%`, zIndex : '0'}}></div>
+                        <div className="progressBar__bar" style={{width: `90%`, backgroundColor: 'white'}}></div>
+                      </div>);
+
 
   return ( 
     <div className="wrapper">
-      <div className="progressBar">
-        {progressBallsToShow}
-        <div className="progressBar__bar" style={{width: `${progressBarWidth}%`, zIndex : '0'}}></div>
-        <div className="progressBar__bar" style={{width: `90%`, backgroundColor: 'white'}}></div>
-      </div>
-      {progressBarWidth === 10 && servicesToShow}
-      <button className="progressBar__btn" onClick={progressBarMove}>LEWO</button>
-      <button className="progressBar__btn" onClick={progressBarMove}>PRAWO</button>
+      {!isCityChosen && <City clickHandler={handleCityChosen}/>}      
+      {isCityChosen && progressBar}
+      {isCityChosen && progressBarWidth === 10 && <ReservationServices servicesList={servicesList}/>}
+      {isCityChosen && progressBarWidth === 30 && <ReservationEmployees/>}
+      {/* <div className="employee">
+        <h2 className="employee__header">Wybierz pracownika</h2>
+        
+      </div> */}
     </div>
    );
 }
