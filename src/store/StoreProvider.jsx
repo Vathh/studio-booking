@@ -21,12 +21,15 @@ const StoreProvider = ({ children }) => {
 
   const [city, setCity] = useState();
 
+  const [isCityChosen, setIsCityChosen] = useState(false);
+
   return ( 
     <StoreContext.Provider value={{
       user, setUser,
       chosenServices, setChosenServices,
       progressBarWidth, setProgressBarWidth,
-      city, setCity
+      city, setCity,
+      isCityChosen, setIsCityChosen
     }}>
       {children}
     </StoreContext.Provider>

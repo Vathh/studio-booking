@@ -8,39 +8,32 @@ import '../styles/ReservationServices.scss'
 
 const ReservationServices = ({ servicesList }) => {
 
-  const {chosenServices, setChosenServices} = useContext(StoreContext);
-  const {progressBarWidth, setProgressBarWidth} = useContext(StoreContext);
+  const {setChosenServices} = useContext(StoreContext);
+  const {setProgressBarWidth} = useContext(StoreContext);
+  const {setIsCityChosen} = useContext(StoreContext);
+  const {setCity} = useContext(StoreContext);
 
   let temporaryChosenServices = [];
-
-  // const progressBarMove = (e) => {
-  //   if(e.target.textContent === 'LEWO'){
-  //     if(progressBarWidth > 10){
-  //       setProgressBarWidth(progressBarWidth - 20);
-  //     }
-  //   }else if(e.target.textContent === 'PRAWO'){
-  //     if(progressBarWidth < 90){
-  //       setProgressBarWidth(progressBarWidth + 20);
-
-  //       const selected = document.querySelectorAll('#service');
-  //       selected.forEach(service => {
-  //         if(service.checked === true){
-  //           console.log(service.getAttribute("serviceid"));
-  //           temporaryChosenServices.push(service.getAttribute("serviceid"))
-  //           console.log(temporaryChosenServices);
-  //         }
-  //       })
-
-  //       setChosenServices(temporaryChosenServices);
-
-  //       return;
-  //     }
-  //   }
-  // }
 
   const handleBackBtn = () => {
     setChosenServices([]);
     setProgressBarWidth(0);
+    setIsCityChosen(false);
+    setCity();
+  }
+
+  const handleForwardBtn = () => {
+    const selected = document.querySelectorAll('#service');
+
+    selected.forEach(service => {
+      if(service.checked === true){
+        temporaryChosenServices.push(service.getAttribute("serviceid"));
+      }
+    })      
+    // console.log(temporaryChosenServices);
+
+    setChosenServices(temporaryChosenServices);
+    return;
   }
 
   const servicesToShow = servicesList.map(category => {
@@ -50,7 +43,10 @@ const ReservationServices = ({ servicesList }) => {
   return ( 
     <>
      {servicesToShow}
-
+     <div className="service__btns">
+      <button className="service__btn" onClick={handleBackBtn}>Cofnij</button>
+      <button className="service__btn" onClick={handleForwardBtn}>Zatwierdź</button>
+     </div>
     </>
    );
 }

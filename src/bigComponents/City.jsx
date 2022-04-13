@@ -8,7 +8,7 @@ import { StoreContext } from '../store/StoreProvider';
 
 const City = ({ clickHandler }) => {
 
-  const {city, setCity} = useContext(StoreContext);
+  const {setCity} = useContext(StoreContext);
 
   const cities = [
     { id: 1,
@@ -21,7 +21,8 @@ const City = ({ clickHandler }) => {
 
   const handleCityBtnClick = (e) => {
     clickHandler();
-    setCity(e.target.getAttribute("id"))
+    setCity(e.target.getAttribute("id")); 
+    // setCity(1); 
   }
 
   const citiesToShow = cities.map(city => {

@@ -69,40 +69,11 @@ const progressBallsData = [
 
 const ReservationPage = () => {
 
-  const [isCityChosen, setIsCityChosen] = useState(false);
+  const {isCityChosen, setIsCityChosen} = useContext(StoreContext);
 
   const {progressBarWidth, setProgressBarWidth} = useContext(StoreContext);
 
   const {city, setCity} = useContext(StoreContext);
-
-  // const {chosenServices, setChosenServices} = useContext(StoreContext);
-
-  // let temporaryChosenServices = [];
-
-  // const progressBarMove = (e) => {
-  //   if(e.target.textContent === 'LEWO'){
-  //     if(progressBarWidth > 10){
-  //       setProgressBarWidth(progressBarWidth - 20);
-  //     }
-  //   }else if(e.target.textContent === 'PRAWO'){
-  //     if(progressBarWidth < 90){
-  //       setProgressBarWidth(progressBarWidth + 20);
-
-  //       const selected = document.querySelectorAll('#service');
-  //       selected.forEach(service => {
-  //         if(service.checked === true){
-  //           console.log(service.getAttribute("serviceid"));
-  //           temporaryChosenServices.push(service.getAttribute("serviceid"))
-  //           console.log(temporaryChosenServices);
-  //         }
-  //       })
-
-  //       setChosenServices(temporaryChosenServices);
-
-  //       return;
-  //     }
-  //   }
-  // }
 
   const handleCityChosen = () => {
     setIsCityChosen(!isCityChosen);
@@ -111,10 +82,6 @@ const ReservationPage = () => {
   const progressBallsToShow = progressBallsData.map(ball => {
     return <ProgressBarBall title={ball.title} key={ball.value} progressBarWidth={progressBarWidth} value={ball.value} />
   })
-
-  // const servicesToShow = servicesList.map(category => {
-  //   return <ServiceCategory servicesList={category.services} category={category.category} key={category.category}></ServiceCategory>
-  // })
 
   const progressBar = (<div className="progressBar">
                         {progressBallsToShow}
