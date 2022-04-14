@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Employee = () => {
+const Employee = ({ number, name, photo }) => {
   return ( 
-    <h3>pracownik</h3>
+    <div className="employee" number={number}>
+      <div className="employee__photo"></div>
+      <h2 className="employee__name">{name}</h2>
+    </div>
    );
 }
  

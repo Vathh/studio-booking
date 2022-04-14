@@ -33,6 +33,7 @@ const ReservationServices = ({ servicesList }) => {
     // console.log(temporaryChosenServices);
 
     setChosenServices(temporaryChosenServices);
+    setProgressBarWidth(30);
     return;
   }
 
