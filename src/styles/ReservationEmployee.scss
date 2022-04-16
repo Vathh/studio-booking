@@ -12,14 +12,17 @@
 .employee{
   padding: 30px 20px;
   // border: 1px solid $white;
-  box-shadow: 0 0 10px $gold;
+  box-shadow: 0 0 5px $gold;
   margin-bottom: 20px;
+  border-radius: 8px;
   
   &__photo{
     width: 200px;
     height: 200px;
-    background-color: $white;
+    background-size: cover;
+    background-position: center;
     border-radius: 50%;
+    border: 1px solid $gold;
   }
 
   &__name{

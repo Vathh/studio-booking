@@ -6,23 +6,24 @@ import '../styles/City.scss'
 
 import { StoreContext } from '../store/StoreProvider';
 
+export const cities = [
+  { 
+    id: 1,
+    title: 'Suwałki'
+  },
+  {
+    id: 2,
+    title: 'Augustów'
+}];
+
 const City = ({ clickHandler }) => {
 
   const {setCity} = useContext(StoreContext);
 
-  const cities = [
-    { id: 1,
-      title: 'Suwałki'
-    },
-    {
-      id: 2,
-      title: 'Augustów'
-    }];
 
   const handleCityBtnClick = (e) => {
     clickHandler();
-    setCity(e.target.getAttribute("id")); 
-    // setCity(1); 
+    setCity(parseInt(e.target.getAttribute("id"))); 
   }
 
   const citiesToShow = cities.map(city => {
