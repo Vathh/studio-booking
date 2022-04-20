@@ -6,7 +6,7 @@ import { StoreContext } from '../store/StoreProvider';
 
 const HourBtns = () => {
 
-  const {chosenDate} = useContext(StoreContext);
+  const {chosenDate, setChosenDate} = useContext(StoreContext);
   const {chosenServices} = useContext(StoreContext);
 
   const servicesIncludesColouring = chosenServices.includes('3') ? true : false;
@@ -52,7 +52,7 @@ const HourBtns = () => {
   })
 
   const handleBackBtn = () => {
-    
+    setChosenDate();
   }
 
   return ( 
