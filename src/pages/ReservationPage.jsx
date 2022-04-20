@@ -16,7 +16,7 @@ export const servicesList = [
     services : [
       {id: '1', name: 'Strzyżenie damskie'},
       {id: '2', name: 'Strzyżenie męskie'}
-     ]},
+      ]},
   {category: 'Koloryzacja',
     services : [
       {id: '3', name: 'Klasyczna koloryzacja'},

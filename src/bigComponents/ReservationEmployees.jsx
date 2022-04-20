@@ -8,28 +8,29 @@ import { StoreContext } from '../store/StoreProvider';
 
 import EmployeeIcon from '../img/employee__icon.jpg'
 
+export const employees = [
+  {
+    id: 1,
+    name: 'Urszula',
+    photo: EmployeeIcon,
+  },
+  {
+    id: 2,
+    name: 'Angelika',
+    photo: EmployeeIcon,
+  },
+  {
+    id: 3,
+    name: 'Barbara',
+    photo: EmployeeIcon,
+  }]
+
 const ReservationEmployees = () => {
 
   const {city} = useContext(StoreContext);
   const {setProgressBarWidth} = useContext(StoreContext);
   const {setChosenServices} = useContext(StoreContext);
 
-  const employees = [
-    {
-      id: 1,
-      name: 'Urszula',
-      photo: EmployeeIcon,
-    },
-    {
-      id: 2,
-      name: 'Angelika',
-      photo: EmployeeIcon,
-    },
-    {
-      id: 3,
-      name: 'Barbara',
-      photo: EmployeeIcon,
-    }]
 
   const handleBackBtn = () => {
     setProgressBarWidth(10);
