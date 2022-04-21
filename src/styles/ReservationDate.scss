@@ -8,19 +8,20 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin: 0 20px;
   }
   &__btn{
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     flex-direction: column;
     padding: 10px 20px;
     text-align: center;
     align-items: center;
     justify-content: space-around;
     border: 1px solid $white;
-    margin: 10px 10px;
-    border-radius: 8px;
+    // margin: 10px 10px;
+    // border-radius: 8px;
     box-shadow: 0 0 5px $white;
 
     &-description{
@@ -45,7 +46,7 @@
     border: 1px solid $gold;
     border-radius: 5px;
     font-size: 2rem;
-    margin: 10px 20px;
+    margin: 10px 7px;
   }
   .service__btn{
     margin-bottom: 0;
