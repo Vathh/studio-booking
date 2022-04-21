@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/studio-booking/static/css/main.b63ba99f.css",
-    "main.js": "/studio-booking/static/js/main.1b2d7e42.js",
+    "main.css": "/studio-booking/static/css/main.30748884.css",
+    "main.js": "/studio-booking/static/js/main.80f3762c.js",
+    "static/media/homepage_header.jpg": "/studio-booking/static/media/homepage_header.a108b1a7e21ea743f08f.jpg",
+    "static/media/employee__icon.jpg": "/studio-booking/static/media/employee__icon.bf4371b7f843195174db.jpg",
     "index.html": "/studio-booking/index.html",
-    "main.b63ba99f.css.map": "/studio-booking/static/css/main.b63ba99f.css.map",
-    "main.1b2d7e42.js.map": "/studio-booking/static/js/main.1b2d7e42.js.map"
+    "main.30748884.css.map": "/studio-booking/static/css/main.30748884.css.map",
+    "main.80f3762c.js.map": "/studio-booking/static/js/main.80f3762c.js.map"
   },
   "entrypoints": [
-    "static/css/main.b63ba99f.css",
-    "static/js/main.1b2d7e42.js"
+    "static/css/main.30748884.css",
+    "static/js/main.80f3762c.js"
   ]
 }
