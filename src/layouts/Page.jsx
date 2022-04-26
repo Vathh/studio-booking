@@ -5,6 +5,7 @@ import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import HomePage from '../pages/HomePage'
 import ReservationPage from '../pages/ReservationPage';
+import UserReservationsPage from '../pages/UserReservationsPage';
 
 const Page = () => {
 
@@ -27,6 +28,7 @@ const Page = () => {
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/reserve" element={<ReservationPage/>}/>
+      <Route path="/reservations" element={<UserReservationsPage/>}/>
     </Routes>    
    );
 }

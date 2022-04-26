@@ -27,7 +27,7 @@ const ReservationServices = ({ servicesList }) => {
 
     selected.forEach(service => {
       if(service.checked === true){
-        temporaryChosenServices.push(service.getAttribute("serviceid"));
+        temporaryChosenServices.push(parseInt(service.getAttribute("serviceid")));
       }
     })      
 

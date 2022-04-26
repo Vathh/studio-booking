@@ -36,7 +36,7 @@ const LoginPage = () => {
     <div className='wrapper'>
       <div className="home">
         <div className="home__header" style={{backgroundImage: `url(${img})`}}>
-        <div className="home__header-shadow"></div>
+          <div className="home__header-shadow"></div>
           <h2 className="home__header-top">rezerwacja online</h2>
           <p className="home__header-text">umówienie wizyty nigdy nie było łatwiejsze</p>
         </div>

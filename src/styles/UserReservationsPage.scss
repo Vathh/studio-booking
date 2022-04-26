@@ -1,0 +1,51 @@
+@import './colors';
+
+.userReservations{
+  position: relative;
+
+  &__header{
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: $gold;
+      
+      &-shadow{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+      }
+      
+      &-top{
+          position: relative;
+          text-align: center;
+          text-transform: uppercase;
+          padding: 50px 0;
+          font-size: 2.7rem;
+          z-index: 1;
+          text-shadow: 1px 1px black;
+      }
+  }
+
+  &__item{
+      border: 1px solid $gold;
+      border-radius: 8px;
+      margin: 30px;
+      padding: 20px;
+      text-align: center;
+
+      &-data{
+          display: block;
+          padding: 5px 0;
+          font-size: 2rem;    
+
+          i{
+              color: $gold;
+          }      
+      }
+  }
+
+  .summary__service{
+      
+  }
+}
